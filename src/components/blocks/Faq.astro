@@ -1,0 +1,100 @@
+---
+import { faq } from '@src/directory.config';
+import { slugMap } from '@data/guide/_slugMap.generated';
+
+import HrDash from '@components/elements/HrDash.astro';
+import Link from '@components/elements/Link.astro';
+import { LEARN_MORE } from '@src/constant';
+
+const faqList = [
+  {
+    title: '如何確認傳輸成功？',
+    slug: '/ml6neIq2ThWBczn6Ey-clA',
+    href: '',
+  },
+  {
+    title: '通訊距離怎麼這麼短！？',
+    slug: '/TFLGPSzdQT-hdykayJJtdw',
+    href: '',
+  },
+  {
+    title: 'V3開啟WIFI後無法連藍牙',
+    slug: '/myEPcjfgQ_6_h3_iM082IA',
+    href: '',
+  },
+  {
+    title: 'V3螢幕邊緣被裁切',
+    slug: '/ZUdmh5oYSSqgOoONByobfg',
+    href: '',
+  },
+  {
+    title: 'GPS沒訊號',
+    slug: '/E7OPrCtPRYmJyr66c_rV_w',
+    href: '',
+  },
+  {
+    title: '畫面好像不太一樣',
+    slug: '/O8gPnED6T_uMFpWilDCmkQ',
+    href: '',
+  },
+  {
+    title: '如何關閉電源',
+    slug: '/lzNxpZvmScKaOqsZ7wi0gA',
+    href: '',
+  },
+  {
+    title: '藍牙連線密碼是？',
+    slug: '/IRMAq2COQ2C5dXNJSOD5-Q',
+    href: '',
+  },
+];
+
+faqList.forEach((item) => {
+  const { slug } = item;
+  const prefix = '/guide';
+  const href = `${prefix}${slugMap[slug as keyof typeof slugMap]}`;
+  if (typeof href === 'string') {
+    item.href = href;
+  } else {
+    item.href = '#';
+  }
+});
+---
+
+<section id='learn-more'>
+  <div class='text-gray-600 bg-gray-200/75 dark:bg-gray-800 dark:text-gray-300'>
+    <div class='w-full max-w-7xl mx-auto px-4 py-24 md:p-12'>
+      <div class='flex w-full max-w-6xl flex-col pb-8 lg:pb-12'>
+        <h1
+          class='text-3xl font-bold text-gray-800 sm:text-4xl dark:text-gray-50 lg:text-5xl'
+          set:text={faq.title}
+        />
+        <HrDash />
+        <p
+          class='mt-2 lg:w-3/4 xl:mt-6 dark:text-gray-300'
+          set:text={faq.description}
+        />
+      </div>
+      <div class='grid grid-cols-1 gap-6 md:grid-cols-2'>
+        {
+          faqList.map((linkItem) => (
+            <Link
+              href={linkItem.href}
+              className='col-span-1 w-full px-8 py-6 inline-flex flex-col items-stretch border-opacity-60 border-2 rounded-2xl border-gray-600 dark:border-gray-300 bg-gray-300/50 dark:bg-gray-900/75 hover:bg-gray-200/90 dark:hover:bg-gray-700/90 md:w-full'
+            >
+              <p class='title-font py-4 text-lg font-medium tracking-wider text-gray-800 md:text-2xl dark:text-gray-100'>
+                <span set:text={linkItem.title} />
+              </p>
+              <div class='inline-flex items-center text-cyan-600 dark:text-malachite'>
+                <span set:text={LEARN_MORE.title} />
+                <span aria-hidden='true' class='ml-2'>
+                  →
+                </span>
+              </div>
+            </Link>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

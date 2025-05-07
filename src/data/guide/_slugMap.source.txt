@@ -1,0 +1,62 @@
+# format: note_id >> slug   # title
+
+/S1m_x-AOA              >> /index                       # 目錄
+
+/UAmGpkIzQy-Fc5xKmcyBtQ >> /about                       # Meshtastic Taiwan
+/Cr8xdkOjQLe13mJp8Q0T2A >> /acknowledgements            # 感謝文檔更新
+/H3whHwfDT02VPBnaj2RBHg >> /what-is-meshtastic          # Meshtastic有何能耐？
+/NJx1rF7MQIOVDpxG86H2Dg >> /meshtastic-in-taiwan        # Meshtastic Taiwan 在台灣發展
+/T5om5V4RRraOkGSmGW43yA >> /use-cases                   # Meshtastic 使用場景
+/WtXcOsWoQxaGDxSZ_p8aLw >> /how-mesh-works              # 如何運作
+
+/9BdJN4Z3Q2myNXV4xul0HQ >> /what-is-lora                # LORA 是什麼
+/syeEwZQOTZyeVa2R1eXrMg >> /what-is-mesh                # MESH 是什麼
+/8GgQHqlzSjCh1E6fKrGb7A >> /what-is-emr                 # 電磁波是什麼
+/pGTPc45STcmRntwbbNF5gw >> /transmission-range          # 無線傳輸距離？
+/SFiLZSE6Tvm9b6AIqcz-Pg >> /what-is-antenna             # 天線是什麼
+/iSiOe4mLSV2DVU6KANJhmQ >> /what-is-iic                 # IIC是什麼
+/LSQ5lU0eSGids9oVslq4xg >> /what-is-mqtt                # MQTT是什麼
+/YapbagTRTjyp4x2TQW8pXg >> /sx12xx-transceivers         # SX12xx系列有哪些？
+/KtImBLBJSK2hFSJv8k6-eA >> /what-is-gps                 # GPS是什麼
+
+/byqNh-dXTtactp28_DtOTQ >> /quick-start                 # >>快速使用<<
+
+/FmAJYG7vQ6-Jivck-rt4bg >> /app-basics                  # APP使用教學
+/h00yTFxUR1a0nCa5vhhqYg >> /android-basics              # Android畫面說明
+/0k89lCb1Qw-jZfeq-Imx4w >> /software-list               # Meshtastic有哪些軟體
+/rnEpa5b_SDCIPOoQ9I5m2A >> /device-roles                # Meshtastic角色介紹
+/jhLi2YVES7-JMlDu4X511g >> /mqtt-setup                  # MQTT設置
+/IRMAq2COQ2C5dXNJSOD5-Q >> /bluetooth-setup             # 藍牙連線
+
+/TK1WlNQeQ3uCb29sHHoaTA >> /what-is-hardware            # 什麼是硬體
+/epmnQ5wqSsWzof9KkxvA4Q >> /hardware-picks              # 硬體的選擇
+/S5-ZrcA7SZCJ9V2BnvZCbg >> /sensor-setup                # 如何添加Sensor
+/NKtqScoZRg6ChTcPA-FazQ >> /antenna-mod                 # 天線的改裝
+
+/3wQrHJXMR1mArU2BQjHoUA >> /what-is-firmware            # 什麼是韌體
+/IsTGhz_wT1KGgLuAmBTt6Q >> /firmware-update             # 如何更新韌體
+
+/eFhdv7bZQ6uM4X-ZGsmrAQ >> /lora-params                 # LoRa參數設置
+/tziwd2ZpQeOGUQ3z60sG0A >> /how-radio-works             # 無線電是如何工作的
+/f4qtZiq-StKWsAQ4Nj5wew >> /pick-your-antenna           # 如何挑選天線
+/zUS_8nCHSbWBBi0NTLZ3-g >> /improve-coverage            # 提高傳輸距離
+
+/iPrD2sDlQjiV3gXDjEolOA >> /meshtastic-planner          # meshtastic規劃器
+
+/ml6neIq2ThWBczn6Ey-clA >> /transmission-check          # 如何確認傳輸成功
+/myEPcjfgQ_6_h3_iM082IA >> /heltec-v3-bluetooth-wifi    # V3開啟WIFI後無法連藍牙
+/ZUdmh5oYSSqgOoONByobfg >> /heltec-v3-screen-cropped    # V3螢幕邊緣被裁切
+/TFLGPSzdQT-hdykayJJtdw >> /why-so-short                # 通訊距離怎麼這麼短
+/E7OPrCtPRYmJyr66c_rV_w >> /gps-signal-lost             # GPS沒訊號
+/O8gPnED6T_uMFpWilDCmkQ >> /ui-troubleshooting          # 畫面好像不太一樣
+/lzNxpZvmScKaOqsZ7wi0gA >> /how-to-shutdown             # 如何關閉電源
+
+/9NITPhYrS--QjdNQUbI_jg >> /antenna-mod-pro-max         # 我要爆改天線
+/4eDgJ5GkTo-lwUEc_eFCmg >> /solar-node-care             # 太陽能板維護
+/B2U3wfhdSgGJ8OG71xdSVQ >> /indoor-node-placement       # 室內擺放節點指南
+/Eox-H-0mSJ-jf3eQ96voUw >> /serial-gpio                 # 串口數據傳輸
+/E-vbDiVbTpeoC9_tznF5Jg >> /what-is-sdr                 # SDR能吃嗎？
+
+/BNJncrCrSGmW3wu5oqjf3w >> /resources                   # 資源彙整
+/DR1pxPFjTZioo3VaL9gq7A >> /third-party-maps            # 第三方地圖
+/P2tJ-ngNRvGzzZgx93lSzA >> /field-survey                # 場勘使用  

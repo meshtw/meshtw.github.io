@@ -1,0 +1,14 @@
+---
+const { id, className, external, href, title } = Astro.props;
+---
+
+<a
+  href={href}
+  {...className && { class: className }}
+  {...id && { id }}
+  {...external && { target: '_blank' }}
+  {...external && { rel: 'noopener noreferrer' }}
+  {...title && { title }}
+>
+  <slot />
+</a>

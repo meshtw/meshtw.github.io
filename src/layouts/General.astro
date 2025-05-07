@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Base.astro';
+import Header from '@components/elements/Header.astro';
+import Footer from '@components/elements/Footer.astro';
+
+import { chevronUpIcon } from '@src/assets/iconSet';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout frontmatter={frontmatter}>
+  <Header />
+  <slot />
+  <Footer />
+  <button
+    type='button'
+    @click='scrollTo({ top: 0 })'
+    @keydown.enter='scrollTo({ top: 0 })'
+    @scroll.window='if (window.scrollY > 160) $el.dataset.show = true; else $el.dataset.show = false'
+    class='bg-malachite-200 fixed right-4 bottom-8 z-90 flex h-10 w-10 translate-y-32 items-center justify-center rounded-full border-2 border-transparent text-3xl opacity-0 transition-all duration-300 hover:border-gray-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:right-8 sm:h-12 sm:w-12'
+    aria-label='Back to Top'
+    data-show='false'
+  >
+    <span class='size-6' set:html={chevronUpIcon} />
+  </button>
+</Layout>

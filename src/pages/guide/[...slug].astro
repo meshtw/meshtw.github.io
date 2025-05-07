@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths, Params } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+
+import MarkdownLayout from '@layouts/Markdown.astro';
+import Prose from '@components/elements/Prose.astro';
+
+interface Props {
+  article: CollectionEntry<'guide'>;
+}
+
+export const getStaticPaths = (async () => {
+  const articles = await getCollection('guide');
+  return articles.map((article) => ({
+    params: { slug: article.id === 'index' ? '/' : article.id },
+    props: { article },
+  }));
+}) satisfies GetStaticPaths;
+
+const { article } = Astro.props as Props;
+const { slug } = Astro.params as Params;
+const { Content } = await render(article);
+const { data, body } = article;
+
+if (!data.title && body) {
+  const match =
+    body.match(/^# (.+)/m) ||
+    body.match(/^## (.+)/m) ||
+    body.match(/^### (.+)/m);
+
+  article.data.title = match ? match[1].trim() : '';
+}
+---
+
+<MarkdownLayout frontmatter={article.data}>
+  <Prose>
+    <Content slug={slug} />
+  </Prose>
+</MarkdownLayout>

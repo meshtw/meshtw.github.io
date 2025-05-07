@@ -1,0 +1,321 @@
+---
+import { SNS_URLS } from '@src/constant';
+import { learnMoreLink, overview } from '@src/directory.config';
+import { closeIcon, contactlessIcon } from '@src/assets/iconSet';
+import HrDash from '@components/elements/HrDash.astro';
+import Link from '@components/elements/Link.astro';
+
+const learnMoreMeshtastic = learnMoreLink(overview);
+
+const whatIsMeshtastic = {
+  title: '什麼是 Meshtastic？',
+  description:
+    'Meshtastic 是一個基於 LoRa 技術的開源項目，旨在透過低功耗、低成本的裝置，建立長距離的無線網狀網路。這使其特別適合在缺乏傳統通信基礎設施的地區，或在緊急情況下提供可靠的通信解決方案。Meshtastic 的裝置可以在沒有網際網路或手機信號的情況下進行點對點通信，並且可以通過 Meshtastic 應用程式輕鬆配置和管理。這使得 Meshtastic 成為戶外活動、災難應對和偏遠地區通信的理想選擇。',
+  image: {
+    src: '/assets/M-POWERED_minified.svg',
+    alt: 'M-POWERED by Meshtastic',
+  },
+};
+
+const whoAreWe = {
+  title: '我們是誰？',
+  description: [
+    '臺灣鏈網致力於推廣 Meshtastic 在臺灣的應用，是由一衆熱衷於 Meshtastic 和網狀無線電通訊的愛好者組成的在地社群。無論是應對自然災害、增強戶外活動安全，還是強化社區韌性，Meshtastic 都提供了一個值得探索和實踐的選擇。我們相信網狀網絡的力量可以跨越地理界限，熱忱邀請您加入我們的行列，共同探索 Meshtastic 的無限可能。',
+    'MeshTW is a community-driven initiative that aims to leverage Meshtastic for establishing off-grid communication networks in Taiwan. We are a group of enthusiasts passionate about Meshtastic and mesh radio communication. From disaster preparedness, outdoor safety, to strengthening community resilience, Meshtastic provides a versatile and innovative solution. We believe in the transformative power of mesh networks to connect people beyond physical boundaries, and we are thrilled to invite you to join us in unlocking the full potential of Meshtastic.',
+  ],
+};
+
+const storyBlock = [
+  {
+    title: '數位韌性新願景',
+    subtitle: '強化台灣的數位韌性，運用 Meshtastic 構建社區網絡安全網',
+    description:
+      '在面對自然災害和緊急情況時，傳統的通信網絡常常會遇到中斷的問題。台灣，一個地震頻繁且颱風經常侵襲的島嶼，對於強化數位韌性的需求尤為迫切。此時，Meshtastic 這一基於 LoRa 技術的開源網絡解決方案，為台灣社區提供了一個獨特而有效的溝通方式。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1648449369171-8112d8d80e3a?q=60&w=600&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA',
+      alt: '(C) Winston Chen via Unsplash',
+    },
+  },
+  {
+    title: '地動山搖也不怕',
+    subtitle: '面對地震和其他天災的挑戰，我們的聯繫從不間斷。',
+    description:
+      '台灣位於太平洋地震帶，經常發生地震，強震可能會導致嚴重的基礎設施損壞，包括破壞通訊塔和電力網絡。在這些災害發生後的首幾小時，迅速而可靠的通訊尤其重要。Meshtastic 裝置由於其耐用性和獨立於傳統網絡的特性，成為災害應對中一個寶貴的工具。它可以幫助救災團隊協調行動，有效進行搜救任務，並且在關鍵時刻使受災居民得以互相聯繫和提供彼此支持。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1693912301566-3f11ad381e03?&q=60w=600&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHRhaXdhbiUyMHNlYXxlbnwwfHwwfHx8Mg%3D%3D',
+      alt: '(C) K.T. Francis via Unsplash',
+    },
+  },
+  {
+    title: '山野無訊求援通',
+    subtitle: '登山探險與野外救援無縫連接，即使身處荒野，通訊始終開放。',
+    description:
+      '台灣的山岳地形吸引了大量的登山愛好者，但山區常常面臨信號涵蓋不足的問題，尤其在偏遠和高海拔地區。在這些情況下，Meshtastic 提供了一個獨特的解決方案，可以極大地增強山區救援的效率和安全性。在登山活動中，使用 Meshtastic 裝置可以讓登山者在沒有手機信號的情況下，依然能夠保持聯繫。這不僅能提高登山者的安全性，還能在緊急情況下迅速發出求救信號，並與救援隊伍保持聯繫。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1640840354023-fcdbc985465e?q=60&w=600&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fHRhaXdhbiUyMGhpa2luZ3xlbnwwfDB8MHx8fDI',
+      alt: '(C) Anledry Cobos via Unsplash',
+    },
+  },
+  {
+    title: '左鄰右舍新連線',
+    subtitle: '社區防災網絡建設，打通鄰里間的連結，讓距離不再是障礙。',
+    description:
+      '位於地震、颱風等自然災害高風險區域的社區，可以考慮建立基於 Meshtastic 的防災通訊網絡。這種網絡可以在緊急狀態下作為重要的資訊傳遞管道，同時也能在平時用於社區活動和日常溝通。這樣的網絡不僅能提高社區的應變能力，還能促進社區成員之間的聯繫和合作。透過 Meshtastic 的開源特性，社區可以根據自身需求進行客製化，並且在沒有信號的情況下，依然能夠保持聯繫。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1601482919287-3e654feced14?&q=60&w=600&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBpbmd0dW5nfGVufDB8fDB8fHwy',
+      alt: '(C) Linsato via Unsplash',
+    },
+  },
+  {
+    title: '活動通訊不受限',
+    subtitle: '無論活動規模大小，通訊連線始終流暢，確保協調無縫連接。',
+    description:
+      'Meshtastic 的網狀網絡技術不僅適用於災害應對，也非常適合用於各類活動的組織和協調。無論是戶外音樂節、大型會議還是社區活動，Meshtastic 都能提供一個穩定的通訊平台。這種獨立於傳統網絡的特性，使得 Meshtastic 成為協調後勤工作的一個理想選擇，確保在蜂窩信號擁擠或信號有限的地區進行溝通。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1647700538503-5c6fb2d897e0?&q=60&w=600&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8',
+      alt: '(C) Ian Lu via Unsplash',
+    },
+  },
+  {
+    title: '智慧連網新時代',
+    subtitle: '將 Meshtastic 融入物聯網應用，打造智慧感知與即時反應的聯網環境',
+    description:
+      'Meshtastic 的開源特性與低功耗特點，為物聯網（IoT）應用提供了靈活而可靠的通訊方案。無論是在農業監控、環境感測，還是遠端設備控制領域，透過 Meshtastic 可以實現無需依賴傳統網路的設備連接。這讓偏遠地區或基礎建設薄弱的場所，也能建構具備智慧感知能力的系統，提升資料收集與即時反應的效率，推動智慧城市與智慧農業的發展。',
+    image: {
+      src: 'https://images.unsplash.com/photo-1636357582639-27620e21d7c5?q=60&w=600&h=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw',
+      alt: '(C) Jorge Ramirez via Unsplash',
+    },
+  },
+];
+
+const storyBlockCssVar = storyBlock
+  .map(
+    (content, index) =>
+      `--mesh-story-block-img${index}: url(${content.image.src})`,
+  )
+  .join(';');
+
+const joinTheMesh = {
+  title: '加入我們',
+  description: [
+    '歡迎所有對 Meshtastic 和網狀無線電通訊感興趣的朋友加入社群！無論是對 Meshtastic 的技術細節感興趣，還是想了解如何在日常生活中應用這項技術，我們都期待與你一起參與活動、分享經驗並共同推動這項技術向前進。隨時保持聯繫，讓我們攜手探索這個充滿可能性的領域！我們的社群正在蓬勃發展，成員們熱情參與討論，並分享實踐經驗與心得。請關注我們的社交媒體平台，隨時獲取最新消息和勸敗資訊。',
+    'Join the march towards a more connected and resilient future. All are welcomed to join us, regardless of your experience level. Keep in touch with us and explore the possibilities of this technology together! Our community is thriving, with members actively engaging in discussions and sharing practical experiences. Follow us on social media platforms to stay updated with the latest info and gadget recommendations.',
+  ],
+};
+
+const joinCommunity = {
+  discord: {
+    title: '加入 Discord 頻道',
+    href: SNS_URLS.discord,
+  },
+  telegram: {
+    title: '加入 Telegram 頻道',
+    href: SNS_URLS.telegram,
+  },
+  meshChannel: {
+    title: '加入臺灣鏈網頻道',
+    href: '#mesh-channel',
+    description: [
+      `打開 Meshtastic 行動應用程式。`,
+      `<p><span class='flex gap-1'>Android：在主介面找到&nbsp;<span class='flex size-8 text-gray-800 dark:text-gray-200' aria-label=' contactless'  aria-hidden='true' class='inline-block text-gray-800 dark:text-gray-200 mr-2 size-6'>${contactlessIcon}</span>&nbsp;圖示並點擊。</span></p><p>iOS：在設定頁面選擇「QR Code」。</p>`,
+      `點擊「掃描」(Scan) 按鈕並掃描上方 QR Code 加入我們的頻道。`,
+    ],
+  },
+};
+---
+
+<section id='what-is-meshtastic' class='bg-gray-200 dark:bg-gray-800'>
+  <div class='mx-auto max-w-6xl px-5 py-6 md:px-10 md:py-20'>
+    <div class='flex flex-col gap-2 md:grid md:grid-cols-3 md:gap-8'>
+      <img
+        src={whatIsMeshtastic.image.src}
+        class='md:cols-span-1 mx-auto my-4 size-auto max-w-lg rounded-[3rem] border-2 border-gray-400 bg-cover bg-center object-contain md:my-8'
+        alt={whatIsMeshtastic.image.alt}
+      />
+      <div class='mb-8 w-full md:order-first md:col-span-2'>
+        <h2
+          class='my-2 text-3xl font-bold text-gray-700 md:my-8 md:text-5xl dark:text-gray-200'
+          set:html={whatIsMeshtastic.title}
+        />
+        <HrDash />
+        <p
+          class='mb-8 leading-8 text-gray-700 md:mb-16 md:text-lg lg:mr-10 dark:text-gray-300'
+          set:html={whatIsMeshtastic.description}
+        />
+        <Link
+          href={learnMoreMeshtastic.href}
+          className='bg-malachite-500 hover:bg-malachite-600 mt-16 rounded border-0 px-8 py-4 text-lg text-gray-800 focus:outline-none'
+        >
+          <span set:text={learnMoreMeshtastic.title} />
+          <span class='ml-2' aria-hidden='true' set:text='→' />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id='community' class='bg-malachite dark:bg-teal-900'>
+  <div class='mx-auto w-full max-w-6xl px-5 py-16 md:px-10 md:py-20'>
+    <h2
+      class='mb-2 text-3xl font-bold text-gray-800 md:mb-8 md:text-5xl dark:text-gray-50'
+      set:html={whoAreWe.title}
+    />
+    <HrDash />
+    {
+      whoAreWe.description.map((desc) => (
+        <p
+          class='mb-4 leading-8 text-gray-800 md:mb-8 lg:max-w-4/5 dark:text-gray-100'
+          set:html={desc}
+        />
+      ))
+    }
+    <div
+      class='grid grid-cols-1 grid-rows-1 gap-4 pt-4 md:pt-8'
+      style={storyBlockCssVar}
+    >
+      {
+        storyBlock.map((content, index) => {
+          const order = index % 2 === 0 ? 'order-first' : 'order-last';
+          const imageClass = `story-${index}-image`;
+          return (
+            <div class='mx-auto inline-grid w-full items-center gap-8 md:max-w-5xl md:grid-cols-2 lg:grid-cols-3'>
+              <div
+                class:list={[
+                  order,
+                  imageClass,
+                  'hidden lg:col-span-1 lg:block lg:h-full lg:max-h-full lg:min-h-[360px] lg:w-auto lg:rounded-2xl lg:bg-cover lg:bg-center lg:object-cover',
+                ]}
+                data-image-courtesy={content.image.alt}
+              />
+              <div class='flex size-full flex-col justify-start gap-5 rounded-2xl border border-solid border-black p-10 md:col-span-2 md:min-h-[296px] lg:col-span-2 dark:border-gray-100'>
+                <p
+                  class='text-2xl font-bold text-gray-800 md:text-3xl dark:text-gray-100'
+                  set:text={content.title}
+                />
+                <p
+                  class='dark:text-malachite-200 text-lg font-bold text-gray-800 md:text-xl'
+                  set:text={content.subtitle}
+                />
+                <p
+                  class='text-sm text-gray-600 sm:text-base dark:text-gray-200'
+                  set:html={content.description}
+                />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<section
+  id='join-us'
+  class='border-b border-gray-300 bg-gray-200/80 dark:border-gray-700 dark:bg-gray-800'
+>
+  <div class='mx-auto max-w-6xl px-5 py-16 md:px-10 md:py-20'>
+    <h2
+      class='mb-2 text-3xl font-bold md:mb-8 md:text-5xl dark:text-gray-200'
+      set:html={joinTheMesh.title}
+    />
+    <HrDash />
+    {
+      joinTheMesh.description.map((desc) => (
+        <p
+          class='mb-4 text-base text-gray-700 md:mb-8 md:text-lg lg:max-w-3/4 lg:text-base dark:text-gray-300'
+          set:html={desc}
+        />
+      ))
+    }
+
+    <div
+      class='pt-8 grid-row-3 grid gap-8 md:pt-12 lg:grid-cols-3 lg:grid-rows-1'
+    >
+      <div x-data='{ openModal: false }'>
+        <!-- Button to open the modal -->
+        <button
+          @click='openModal = true'
+          class='bg-malachite w-full rounded px-10 py-3 text-lg font-normal text-gray-800 hover:underline'
+          ><span set:text={joinCommunity.meshChannel.title} />
+          <span aria-hidden='true' set:text='→' />
+        </button>
+        <!-- Modal overlay -->
+        <div
+          id='#mesh-channel'
+          x-show='openModal'
+          x-transition.opacity.duration.200ms
+          style='display: none;'
+          class='fixed inset-0 z-99 flex items-center justify-center bg-gray-800/50 transition-all duration-300 dark:bg-gray-600/75'
+        >
+          <!-- Modal content -->
+          <div
+            @click.outside='openModal = false'
+            class='relative flex size-auto max-w-screen flex-col items-center gap-6 rounded-lg bg-gray-50 p-8 transition-all duration-300 dark:bg-gray-900'
+          >
+            <button
+              @click='openModal = false'
+              class='absolute top-2 right-2 mb-4 block size-8 text-gray-800 dark:text-gray-300'
+            >
+              <span set:html={closeIcon} />
+              <span class='sr-only' set:text='Close 關閉' />
+            </button>
+            <div class='flex flex-col items-center'>
+              <div
+                style='background-image: url(/assets/channel-qr-code.png);'
+                class='my-2 w-full max-w-lg bg-cover bg-center object-contain dark:invert-[0.9]'
+              >
+              </div>
+              <div
+                class='my-2 text-lg text-gray-700 md:my-8 md:text-xl dark:text-gray-300'
+              >
+                <ol class='list-decimal px-2'>
+                  {
+                    joinCommunity.meshChannel.description.map((step) => (
+                      <li
+                        class='dark:marker:text-malachite my-2 marker:text-cyan-700'
+                        set:html={step}
+                      />
+                    ))
+                  }
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {
+        [joinCommunity.discord, joinCommunity.telegram].map((channel) => (
+          <Link
+            className='w-full px-10 py-3 text-lg text-center font-normal rounded bg-malachite text-gray-800 hover:underline'
+            href={channel.href}
+            external
+          >
+            <span set:text={channel.title} />
+            <span aria-hidden='true' set:text='→' />
+          </Link>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .story-0-image {
+    background-image: var(--mesh-story-block-img0);
+  }
+  .story-1-image {
+    background-image: var(--mesh-story-block-img1);
+  }
+  .story-2-image {
+    background-image: var(--mesh-story-block-img2);
+  }
+  .story-3-image {
+    background-image: var(--mesh-story-block-img3);
+  }
+  .story-4-image {
+    background-image: var(--mesh-story-block-img4);
+  }
+  .story-5-image {
+    background-image: var(--mesh-story-block-img5);
+  }
+</style>

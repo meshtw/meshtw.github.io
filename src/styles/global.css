@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-malachite: #67ea94;
+  --color-malachite-50: #cbfff8;
+  --color-malachite-100: #b7ffe4;
+  --color-malachite-200: #adffda;
+  --color-malachite-300: #8fffbc;
+  --color-malachite-400: #7bfea8;
+  --color-malachite-500: #67ea94;
+  --color-malachite-600: #53d680;
+  --color-malachite-700: #35b862;
+  --color-malachite-800: #21a44e;
+  --color-malachite-900: #007300;
+  --color-malachite-contrast-background: #e6f6e6;
+  --color-malachite-contrast-foreground: #003100;
+  --color-malachite-bg: #2c2d3c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body * {
+  @apply transition-colors duration-300;
+}
+
+.youtube,
+.vimeo {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}

@@ -1,0 +1,212 @@
+/* Typewriter effect by Alvaro Montoro */
+@keyframes typing {
+  /* 開源的 */
+  0.0000%,
+  26.3488% {
+    content: '';
+  }
+  1.1395%,
+  25.2093% {
+    content: 'ㄎ';
+  }
+  2.2791%,
+  24.0698% {
+    content: 'ㄎㄞ';
+  }
+  3.4186%,
+  23.9302% {
+    content: '開';
+  }
+  4.5581%,
+  22.7907% {
+    content: '開ㄩ';
+  }
+  5.6977%,
+  21.6512% {
+    content: '開ㄩㄢˊ';
+  }
+  6.8372%,
+  20.5116% {
+    content: '開源';
+  }
+  7.9767%,
+  19.3721% {
+    content: '開源ㄉ';
+  }
+  9.1163%,
+  18.2326% {
+    content: '開源˙ㄉㄜ';
+  }
+  10.2558%,
+  17.0930% {
+    content: '開源的';
+  }
+  /* 離網的 */
+  30.7674%,
+  53.2791% {
+    content: '';
+  }
+  31.9069%,
+  52.1395% {
+    content: 'ㄌ';
+  }
+  32.0465%,
+  51.0000% {
+    content: 'ㄌㄧˊ';
+  }
+  33.1861%,
+  50.8605% {
+    content: '離';
+  }
+  34.3256%,
+  49.7209% {
+    content: '離ㄨ';
+  }
+  35.4651%,
+  48.5814% {
+    content: '離ㄨㄤˇ';
+  }
+  36.6047%,
+  47.4419% {
+    content: '離網';
+  }
+  37.7442%,
+  46.3023% {
+    content: '離網ㄉ';
+  }
+  38.8837%,
+  45.1628% {
+    content: '離網˙ㄉㄜ';
+  }
+  39.0233%,
+  44.0233% {
+    content: '離網的';
+  }
+  /* 去中心化的 */
+  57.6977%,
+  98.8605% {
+    content: '';
+  }
+  58.8372%,
+  97.7209% {
+    content: 'ㄑ';
+  }
+  59.9767%,
+  96.5814% {
+    content: 'ㄑㄩˋ';
+  }
+  60.1163%,
+  95.4419% {
+    content: '去';
+  }
+  61.2558%,
+  94.3023% {
+    content: '去ㄓ';
+  }
+  62.3953%,
+  93.1628% {
+    content: '去ㄓㄨ';
+  }
+  63.5349%,
+  92.0233% {
+    content: '去ㄓㄨㄥ';
+  }
+  64.6744%,
+  91.8837% {
+    content: '去中';
+  }
+  65.8139%,
+  90.7442% {
+    content: '去中ㄒ';
+  }
+  66.9535%,
+  89.6047% {
+    content: '去中ㄒㄧ';
+  }
+  67.9535%,
+  88.6047% {
+    content: '去中ㄒㄧㄣ';
+  }
+  68.0930%,
+  87.4651% {
+    content: '去中心';
+  }
+  69.2326%,
+  86.3256% {
+    content: '去中心ㄏ';
+  }
+  70.3721%,
+  85.1861% {
+    content: '去中心ㄏㄨ';
+  }
+  71.3721%,
+  84.1861% {
+    content: '去中心ㄏㄨㄚˋ';
+  }
+  72.5116%,
+  83.0465% {
+    content: '去中心化';
+  }
+  73.6512%,
+  82.9069% {
+    content: '去中心化ㄉ';
+  }
+  74.7907%,
+  81.7674% {
+    content: '去中心化˙ㄉㄜ';
+  }
+  75.9302%,
+  80.6279% {
+    content: '去中心化的';
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: '';
+  animation: typing 13.5s infinite;
+}
+
+.typewriter::after {
+  content: '';
+  border-right: 1.25ch solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+/* For reduced motion */
+@media (prefers-reduced-motion) {
+  .typewriter::after {
+    animation: none;
+  }
+
+  @keyframes sequencePopup {
+    0%,
+    100% {
+      content: '開源的';
+    }
+    34% {
+      content: '離網的';
+    }
+    67% {
+      content: '去中心化的';
+    }
+  }
+
+  .typewriter::before {
+    content: 'developer';
+    animation: sequencePopup 12s linear infinite;
+  }
+}

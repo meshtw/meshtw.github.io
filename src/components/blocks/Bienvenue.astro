@@ -1,0 +1,492 @@
+---
+import type { LinkObjects } from '@src/types/link';
+import { LEARN_MORE } from '@src/constant';
+import { externalLinkIcon, tickIcon, deviceIcons } from '@assets/iconSet';
+import { gettingStarted, download, joinUs } from '@src/directory.config';
+import HrDash from '@components/elements/HrDash.astro';
+import Link from '@components/elements/Link.astro';
+
+import '@styles/typewriter.css';
+
+const meshComm = '網狀通訊網絡';
+const hero = {
+  title: `開源、離網、去中心化的${meshComm}`,
+  description: `<span>無論是在戶外探險、參加活動，或是物聯網應用，還是災難救援、通訊備援，<span class='text-malachite font-bold'>Meshtastic</span>都能讓你在沒有手機信號的情況下，依然保持聯繫。</span>`,
+};
+
+const start123 = {
+  title: '開始使用',
+  subtitle: '數步驟就輕鬆上手',
+  steps: [
+    {
+      step: 1,
+      title: '選購硬體配置',
+      href: '#connect-to-meshtastic',
+      description:
+        'Meshtastic 支援多種硬體裝置，包括 ESP32、nRF52、Raspberry Pi 等，選擇及組裝適合你的裝置。',
+    },
+    {
+      step: 2,
+      title: '寫入韌體並設定',
+      href: '/quick-start',
+      description:
+        '下載最新版本的 Meshtastic 韌體寫入你的裝置，並根據需求進行設定。',
+    },
+    {
+      step: 3,
+      title: '下載應用程式',
+      href: '#connect-to-meshtastic',
+      description:
+        '下載 Meshtastic 的行動裝置應用程式，讓你能隨時隨地管理和控制你的裝置。',
+    },
+
+    {
+      step: 4,
+      title: '連接到你的裝置',
+      href: '#connect-to-meshtastic',
+      description: '透過應用程式連接到你的裝置即可開始發送和接收訊息！',
+    },
+    {
+      step: 5,
+      title: '加入社群',
+      href: '/join-us',
+      description:
+        '加入臺灣鏈網頻道，與社群朋友們交換最新資訊、獲取技術支援和使用經驗分享。',
+    },
+    {
+      step: 6,
+      title: '探索更多',
+      href: '/components',
+      description:
+        'Meshtastic 的應用無限，探索更多使用案例和應用場景，讓你的裝置發揮更大潛力！',
+    },
+  ],
+};
+
+const keyFeature = {
+  title: 'Meshtastic 有何能耐？',
+  description:
+    'Meshtastic 是一個基於 LoRa 技術的開源專案，旨在透過低功耗、低成本的裝置，建立長距離的無線網狀網路。這使其特別適合在缺乏傳統通信基礎設施的地區，或在緊急情況下提供可靠的通信解決方案。',
+  list: [
+    {
+      title: '開源和社區驅動',
+      description:
+        '社區驅動的開源專案，可以根據需求進行客製和擴展。任何人都可以參與貢獻，促進技術創新。',
+    },
+    {
+      title: '遠距離通訊',
+      description:
+        '利用 LoRa 技術，便可獨立在無網路覆蓋的區域實現區域文本通訊。LoRa 位於低頻頻段覆蓋範圍更廣域，還能夠穿透建築物和自然障礙。',
+    },
+    {
+      title: '自組織網絡',
+      description:
+        '每個設備既是發送者也是中繼站，能自動擴展網絡範圍，即便部分節點失效離線，網路仍能保持運行。',
+    },
+    {
+      title: '低成本部署',
+      description:
+        '相較於傳統通訊系統，採用成本低廉的硬體和開源軟體，不用吃土就能入門 LoRa 通訊，也非常適合社區自主部署。',
+    },
+    {
+      title: '離網加密通訊',
+      description:
+        '毌須蜂巢網路或網際網路服務，可在無網路環境下運行。所有通訊預設均經過加密，確保資料具一定的安全性和隱私性。',
+    },
+    {
+      title: '低功耗運行、長久續航力',
+      description:
+        '設計上強調低功耗，允許裝置長時間運行，非常適合野外和緊急情況使用，提供獨立於傳統網絡的通信手段。',
+    },
+    {
+      title: '免執照利用',
+      description:
+        '利用 ISM 頻段工作，無需執照即可合法使用，對普羅大衆十分友善。任何人都可以輕鬆地參與和使用，毌須經過繁瑣許可申請。',
+    },
+    {
+      title: '即時位置共享',
+      description:
+        '搭配 GPS 模組支援即時位置共享，用戶可以在網路中共享自己的實時位置，對於團隊協作和緊急救援特別有用。',
+    },
+  ],
+};
+
+const ctaJumbotron = {
+  title: `<span>為<span class='font-bold text-malachite-900 dark:text-malachite'>數位韌性建設</span>貢獻力量</span><span>串連起臺灣的<span class='font-extrabold text-malachite-900 dark:text-malachite'>每一個角落</span></span>`,
+  description: `<span><span class='font-normal tracking-wider text-malachite-900 dark:text-malachite'>臺灣鏈網</span>致力於推廣 Meshtastic 在日常生活中的應用，由充滿熱情的社群朋友提供相關的技術支援。無論你是無線電老鳥、科技發燒友，或是戸外運動愛好者，又或是民間救難團隊，都歡迎你加入我們的行列！</span>`,
+};
+
+const connectToMeshtastic = {
+  title: '連接到 Meshtastic',
+  description:
+    '開始發送與接收訊息吧！你可以透過官方的行動應用、網頁客戶端，或由社群開發的多樣工具來連接你的 Meshtastic 裝置，依照需求選擇最合適的方式使用。',
+  options: [
+    {
+      title: 'Android',
+      description: '使用 Android 應用程式隨時隨地管理 Meshtastic 裝置。',
+      href: 'https://play.google.com/store/apps/details?id=com.geeksville.mesh',
+      icon: deviceIcons.mobile,
+      external: true,
+    },
+    {
+      title: 'iOS',
+      description: '使用 iOS 應用程式輕鬆連接與操作裝置。',
+      href: 'https://apple.co/3Auysep',
+      icon: deviceIcons.mobile,
+      external: true,
+    },
+    {
+      title: 'Web',
+      description:
+        '官方網頁版客戶端，無需安裝即可遠端控制你的 Meshtastic 裝置。',
+      href: 'https://client.meshtastic.org/',
+      icon: deviceIcons.globe,
+      external: true,
+    },
+    {
+      title: 'Python CLI / SDK',
+      description: '給開發者與進階使用者的指令列工具，支援高階操作與自動化。',
+      href: 'https://meshtastic.org/docs/software/python/cli/installation/',
+      icon: deviceIcons.cli,
+      external: true,
+    },
+    {
+      title: 'Ruby Gem ¹⁻²',
+      description: '由社群提供的 Ruby 套件，支援 MQTT 訊息互動功能。',
+      href: 'https://github.com/0dayinc/meshtastic',
+      icon: deviceIcons.gem,
+      external: true,
+    },
+    {
+      title: 'MeshSense ¹⁻³',
+      description:
+        '支援 Windows、macOS、Linux 的桌面應用，可透過藍牙、Wi-Fi 與乙太網路連接 Meshtastic 裝置。',
+      href: 'https://github.com/Affirmatech/MeshSense',
+      icon: deviceIcons.globe,
+      external: true,
+    },
+  ] satisfies LinkObjects,
+  footnotes: [
+    '¹：以下為社群提供的第三方工具，與 Meshtastic LLC 無直接關聯。',
+    '²：由 0day Inc. 提供。',
+    '³：由 Affirmatech 開發。',
+  ],
+};
+
+const learnMoreOverview = {
+  title: '進一步了解',
+  subTitle: '探索 Meshtastic 的無限可能性',
+  description:
+    '了解更多關於 Meshtastic 的資訊，探索各種資源和工具，充分發揮 Meshtastic 的潛力！',
+  list: [
+    {
+      title: '軟體篇',
+      description:
+        '只要有心，人人都可以是大神！了解 Meshtastic 操作介面和基本功能，輕鬆上手不費力。',
+      href: '/guide/software',
+      icon: '🕹️',
+    },
+    {
+      title: '硬體篇',
+      description:
+        '只是DIY，不用賭身家。認識各種常見組合，從選購到組裝，構建專屬於你的通訊節點。',
+      href: '/guide/hardware',
+      icon: '🏗️',
+    },
+    {
+      title: '韌體篇',
+      description:
+        '韌是韌體的韌，體是韌體的體。韌體決定裝置怎麼跑，了解如何安裝、更新韌體與設定。',
+      href: '/guide/firmware',
+      icon: '🧩',
+    },
+    {
+      title: '射頻篇',
+      description:
+        '有沒有感覺刺刺的？簡單介紹 LoRa 傳輸、天線選配與傳輸設定，讓通訊更遠、更清楚。',
+      href: '/guide/radio-frequency',
+      icon: '📡',
+    },
+  ] satisfies LinkObjects,
+};
+---
+
+<section id='hero-section'>
+  <div class='hero-background h-[32rem] w-full bg-cover bg-center'>
+    <div
+      class='mx-auto w-screen max-w-screen-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32'
+    >
+      <div class='mx-auto text-center'>
+        <h1
+          class='flex flex-col items-center gap-4 text-4xl font-semibold text-gray-50 sm:text-5xl'
+          aria-label={hero.title}
+        >
+          <span class='typewriter text-malachite font-bold'></span>
+          <span set:text={meshComm} />
+        </h1>
+        <div class='mx-auto mt-6 max-w-2xl'>
+          <p
+            class='text-base text-pretty text-gray-100 sm:text-lg/relaxed'
+            set:html={hero.description}
+          />
+        </div>
+        <div
+          class='m-6 flex flex-col justify-center gap-4 md:flex-row lg:mx-0 lg:gap-6'
+        >
+          <a
+            class='bg-malachite border-malachite hover:bg-malachite-700/80 inline-block rounded border px-6 py-3 font-medium text-gray-800 shadow-sm transition-colors hover:text-gray-50'
+            href={gettingStarted.href}
+          >
+            {gettingStarted.title}
+          </a>
+          <a
+            class='inline-block rounded border border-gray-200 bg-gray-800/50 px-6 py-3 font-medium text-gray-200 shadow-sm transition-colors hover:border-gray-400 hover:bg-gray-800/80'
+            href={download.href}
+            rel='noreferrer'
+            target='_blank'
+          >
+            <span set:html={download.title} />
+            <span set:html={externalLinkIcon} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id='getting-started'>
+  <div
+    class='bg-gray-100 px-4 py-8 text-gray-900 md:p-16 dark:bg-gray-800/90 dark:text-gray-200'
+  >
+    <div class='mx-auto max-w-7xl'>
+      <h2 class='block text-center'>
+        <span
+          class='bg-malachite my-2 p-2 text-sm font-medium tracking-widest text-gray-800 lg:text-lg'
+          set:text={start123.subtitle}
+        />
+        <span
+          class='my-6 block text-5xl font-bold tracking-wider text-gray-800 dark:text-gray-100'
+          set:text={start123.title}
+        />
+      </h2>
+      <div class='my-16 grid gap-6 lg:grid-cols-3'>
+        {
+          start123.steps.map((step) => (
+            <div
+              class='bg-malachite flex flex-col gap-6 rounded-md px-6 py-8 xl:flex-row dark:bg-gray-500/50'
+              data-step={step.step}
+            >
+              <div
+                class='dark:bg-malachite flex size-16 flex-shrink-0 items-center justify-center rounded-full border-1 bg-transparent text-xl font-bold text-gray-800 dark:border-0'
+                aria-label={`步驟 ${step.step}`}
+                set:text={step.step}
+              />
+              <div>
+                <p class='dark:text-malachite py-2 text-2xl font-normal tracking-wider text-cyan-900 lg:text-3xl'>
+                  <span>{step.title}</span>
+                </p>
+                <p class='py-2 font-normal lg:text-lg'>{step.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<section id='key-features'>
+  <div
+    class='bg-gray-200 lg:flex lg:justify-center lg:py-12 dark:bg-gray-900/90'
+  >
+    <div class='mx-auto max-w-screen-xl p-6 md:p-12 lg:w-full lg:max-w-7xl'>
+      <div>
+        <h3
+          class='text-2xl font-bold tracking-tight text-gray-700 sm:text-3xl dark:text-gray-50'
+          set:text={keyFeature.title}
+        />
+        <HrDash />
+        <p
+          class='mt-3 text-lg text-gray-600 dark:text-gray-400'
+          set:text={keyFeature.description}
+        />
+        <div class='mx-auto mt-12 space-y-12 lg:max-w-6xl'>
+          <div
+            class='grid gap-4 gap-y-6 lg:grid-cols-2 lg:items-center lg:gap-8'
+          >
+            {
+              keyFeature.list.map((feature) => (
+                <div class='flex h-1/2'>
+                  <div class='flex-shrink-0'>
+                    <div
+                      class='bg-malachite dark:bg-malachite-400 flex size-12 items-center justify-center rounded-md text-gray-700 dark:text-gray-900'
+                      aria-label={feature.title}
+                    >
+                      <span set:html={tickIcon} class='size-8' />
+                    </div>
+                  </div>
+                  <div class='ml-4'>
+                    <h4
+                      class='text-lg leading-6 font-medium text-gray-700 dark:text-gray-50'
+                      set:text={feature.title}
+                    />
+                    <p
+                      class='mt-2 text-gray-600 dark:text-gray-400'
+                      set:text={feature.description}
+                    />
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id='cta-jumbotron'>
+  <div
+    class='bg-gray-400/80 lg:flex lg:justify-center lg:py-12 dark:bg-gray-800/90'
+  >
+    <div
+      class='overflow-hidden bg-gray-100 lg:mx-8 lg:flex lg:w-full lg:max-w-6xl lg:rounded-xl lg:shadow-md dark:bg-cyan-950/50'
+    >
+      <div class='max-w-screen px-6 py-10 md:p-12 lg:w-1/2 lg:max-w-6xl'>
+        <h2
+          class='inline-flex flex-col gap-2 text-2xl text-gray-800 md:text-3xl dark:text-gray-100'
+          set:html={ctaJumbotron.title}
+        />
+        <p
+          class='md:fond-normal hidden py-4 text-sm/7 font-light text-gray-700 md:mt-4 md:block md:text-base dark:text-gray-200/80'
+          set:html={ctaJumbotron.description}
+        />
+        <div class='mt-6 inline-flex w-full lg:w-auto'>
+          <Link
+            href={joinUs.href}
+            className='bg-malachite-800 dark:bg-malachite hover:bg-malachite-700/90 dark:hover:bg-malachite-300 focus:ring-opacity-80 inline-flex w-full items-center justify-center rounded px-6 py-2.5 text-sm text-gray-100 duration-300 hover:text-gray-100 focus:ring focus:ring-gray-300 dark:text-gray-900 dark:hover:text-gray-800'
+          >
+            {joinUs.title}
+            <span class='ml-2' aria-hidden='true' set:text='→' />
+          </Link>
+        </div>
+      </div>
+      <div class='hidden lg:block lg:w-1/2'>
+        <div class='jumbotron-bg h-64 bg-cover bg-center lg:h-full'></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id='connect-to-meshtastic'>
+  <div class='bg-malachite dark:bg-gray-900/90'>
+    <div class='mx-auto max-w-7xl p-6 text-gray-800 md:p-12 dark:text-gray-100'>
+      <h2
+        class='text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl dark:text-gray-50'
+        set:text={connectToMeshtastic.title}
+      />
+      <HrDash />
+      <p
+        class='mt-4 lg:w-3/4 xl:mt-6 dark:text-gray-300'
+        set:text={connectToMeshtastic.description}
+      />
+      <div
+        class='mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3'
+      >
+        {
+          connectToMeshtastic.options.map((device) => (
+            <div class='dark:border-malachite space-y-2 rounded-xl border-2 border-cyan-900 p-8'>
+              <span
+                class='dark:text-malachite inline-block size-8 text-cyan-900'
+                set:html={device.icon}
+              />
+              <h3
+                class='text-xl font-semibold text-cyan-900 dark:text-gray-100'
+                set:text={device.title}
+              />
+              <p
+                class='font-normal text-gray-600 dark:text-gray-300/90'
+                set:text={device.description}
+              />
+              <Link
+                href={device.href}
+                className='inline-flex text-cyan-800 dark:text-malachite transition-all underline hover:no-underline'
+                external={device.external}
+              >
+                <span set:html={LEARN_MORE.title} />
+                {device.external && (
+                  <span set:html={externalLinkIcon} class='ml-2' />
+                )}
+              </Link>
+            </div>
+          ))
+        }
+      </div>
+      <div data-footnote class='mt-4 px-2 xl:mt-6'>
+        {
+          connectToMeshtastic.footnotes.map((footnote) => (
+            <p
+              data-footnote
+              class='block text-xs text-gray-600 dark:text-gray-400'
+              set:text={footnote}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<section id='learn-more'>
+  <div class='text-gray-600 dark:bg-gray-800/92 dark:text-gray-300'>
+    <div class='w-full max-w-7xl mx-auto px-4 py-24 md:p-12'>
+      <div class='flex w-full max-w-6xl flex-col pb-8 lg:pb-12'>
+        <h2
+          class='text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl dark:text-gray-50'
+          set:text={learnMoreOverview.title}
+        />
+        <HrDash />
+        <p
+          class='title-font text-malachite-800 dark:text-malachite py-1 text-sm font-medium tracking-widest'
+          set:text={learnMoreOverview.subTitle}
+        />
+        <p
+          class='mt-2 lg:w-3/4 xl:mt-6 dark:text-gray-300'
+          set:text={learnMoreOverview.description}
+        />
+      </div>
+      <div class='flex flex-wrap'>
+        {
+          learnMoreOverview.list.map(({ icon, title, description, href }) => (
+            <div class='border-opacity-60 flex flex-col items-stretch border-l-2 border-gray-200 px-8 py-6 md:w-full lg:w-1/2 xl:w-1/4 dark:border-cyan-800'>
+              <p class='title-font py-2 text-lg font-medium tracking-wider text-gray-800 md:text-xl dark:text-gray-100'>
+                <span aria-hidden='true' set:text={icon} />
+                <span set:text={title} />
+              </p>
+              <p
+                class='mb-4 flex-grow text-base leading-7 text-gray-500 dark:text-gray-300'
+                set:text={description}
+              />
+              <Link
+                href={href}
+                className='inline-flex items-center text-cyan-600 dark:text-malachite'
+              >
+                <span set:text={LEARN_MORE.title} />
+                <span aria-hidden='true' class='ml-2'>
+                  →
+                </span>
+              </Link>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-background {
+    background-image: url(/assets/fb-group-cover.jpg);
+    background-color: rgba(0, 0, 0, 0.67);
+    background-blend-mode: darken;
+  }
+
+  .jumbotron-bg {
+    background-image: url('https://images.unsplash.com/photo-1606659102514-41ed411f3c13?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8GVufDB8fHx8fA');
+  }
+</style>

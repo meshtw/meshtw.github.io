@@ -1,0 +1,83 @@
+---
+import { meshtwDash, externalLinkIcon, snsIcons } from '@assets/iconSet';
+import { SITE, SNS_LINKS } from 'constant';
+import { footerLinksGroup } from '@src/directory.config';
+
+import Link from './Link.astro';
+
+const footerFootnote = [
+  `2024-present ${SITE.title}. Built with ❤️ by community members.`,
+  'Meshtastic 作為輔助通訊工具，無法取代緊急電話服務，使用者必須自行評估其適用性。',
+  '若您迫切需要緊急救難協助，陸上救難請撥打119，海難救助請撥打118，行動電話無SIM卡或無自家業者訊號時請撥打112。',
+  '臺灣鏈網與 Meshtastic 無從屬關係，未曾受其贊助或背書。任何因使用 Meshtastic 而導致的損失或損害，本網站恕不負責。',
+  'This site is not affiliated with or endorsed by the Meshtastic project.',
+  'Meshtastic® is a registered trademark of Meshtastic LLC.',
+];
+---
+
+<footer class='bg-gray-200 dark:bg-gray-900'>
+  <div
+    class='mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8'
+  >
+    <div class='sm:flex sm:items-center sm:justify-between'>
+      <div>
+        <div
+          set:html={meshtwDash}
+          class='text-malachite max-w-[300px] lg:max-w-full'
+        />
+        <div
+          class='p-1 text-lg tracking-[1em] text-gray-600/90 lg:text-base dark:text-gray-300'
+          set:text={SITE.titleZh}
+        />
+      </div>
+
+      <ul class='mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end lg:mr-6'>
+        {
+          SNS_LINKS.map(({ name, href, label }) => (
+            <li class='size-5 text-gray-700 transition hover:opacity-75 dark:text-gray-200'>
+              <Link href={href} external className=''>
+                <span class='sr-only'>{label}</span>
+                <span set:html={snsIcons[name]} />
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div
+      class='grid grid-cols-1 gap-8 border-t border-gray-300 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:pt-12 dark:border-gray-600'
+    >
+      {
+        footerLinksGroup.map(({ title, links }) => (
+          <div>
+            <p class='font-medium text-gray-900 dark:text-white'>{title}</p>
+
+            <ul class='mt-6 space-y-4 text-sm'>
+              {links.map(({ href, title, external }) => (
+                <li>
+                  <Link
+                    href={href}
+                    className='text-gray-700 transition hover:opacity-75 dark:text-gray-200'
+                    external={external}
+                  >
+                    <span set:text={title} />
+                    {external && (
+                      <span set:html={externalLinkIcon} class='ml-2' />
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class='flex flex-col gap-2 text-xs tracking-wide text-gray-600/90 dark:text-gray-400'
+    >
+      {footerFootnote.map((note) => <p set:html={note} />)}
+    </div>
+  </div>
+</footer>

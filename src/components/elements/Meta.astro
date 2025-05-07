@@ -1,0 +1,53 @@
+---
+import { SITE } from '@src/constant';
+import { findLinkByPath } from '@src/directory.config';
+
+const { frontmatter = {} } = Astro.props;
+const { title: propsTitle = null } = frontmatter;
+const linkMatch = findLinkByPath(Astro.url.pathname);
+
+const parsePageTitle = () => {
+  if (!propsTitle && !linkMatch) return SITE.title;
+  if (propsTitle) return `${propsTitle} | ${SITE.title}`;
+  if (linkMatch) return `${linkMatch.title} | ${SITE.title}`;
+  return SITE.title;
+};
+const pageTitle = parsePageTitle();
+
+const pageDescription =
+  (linkMatch && linkMatch.description) || SITE.description;
+---
+
+<!-- Primary Meta Tags -->
+<title set:text={pageTitle} />
+<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<link rel='canonical' href={SITE.website} />
+<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+<link rel='apple-touch-icon' href='/favicon.svg' />
+<meta name='theme-color' content='#67ea94' />
+
+<meta name='copyright' content={SITE.title} />
+<meta name='app-title' content={SITE.title} />
+<meta name='description' content={pageDescription} />
+<meta name='generator' content={Astro.generator} />
+
+<!-- Open Graph / Facebook -->
+<meta property='og:title' content={pageTitle} />
+<meta property='og:type' content='website' />
+<meta property='og:url' content={Astro.url.href} />
+<meta property='og:description' content={pageDescription} />
+<meta property='og:locale' content='zh_TW' />
+<meta property='og:site_name' content={SITE.title} />
+<meta property='og:image' content={SITE.ogImage} />
+<meta property='og:image:type' content='image/jpg' />
+<meta property='og:image:width' content='2048' />
+<meta property='og:image:height' content='1170' />
+
+<!-- Twitter -->
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={Astro.url.href} />
+<meta property='twitter:title' content={pageTitle} />
+<meta property='twitter:description' content={pageDescription} />
+<meta property='twitter:image' content={SITE.ogImage} />
