@@ -1,5 +1,10 @@
 name: CI
 
+env: 
+  HMD_SLUG_SOURCE_FILE: ${{ vars.HMD_SLUG_SOURCE_FILE }}
+  HMD_SLUG_OUTPUT_FILE: ${{ vars.HMD_SLUG_OUTPUT_FILE }}
+  HMD_MD_OUT_DIR: ${{ vars.HMD_MD_OUT_DIR }}
+
 on:
   pull_request:
     types:
@@ -17,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: 20
 
     steps:
       - name: '☁️ Checkout repository'
@@ -28,6 +33,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+
+      - name: '🖨️ Export environment variables'
+        run: |
+          touch .env
+          echo "HMD_SLUG_SOURCE_FILE=${{ vars.HMD_SLUG_SOURCE_FILE }}" >> .env
+          echo "HMD_SLUG_OUTPUT_FILE=${{ vars.HMD_SLUG_OUTPUT_FILE }}" >> .env
+          echo "HMD_MD_OUT_DIR=${{ vars.HMD_MD_OUT_DIR }}" >> .env
 
       - name: '📦 Install dependencies'
         run: npm ci

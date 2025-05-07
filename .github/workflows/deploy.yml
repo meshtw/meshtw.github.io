@@ -1,5 +1,11 @@
 name: Deploy to GitHub Pages
 
+env: 
+  HMD_SLUG_SOURCE_FILE: ${{ secrets.HMD_SLUG_SOURCE_FILE }}
+  HMD_SLUG_OUTPUT_FILE: ${{ secrets.HMD_SLUG_OUTPUT_FILE }}
+  HMD_MD_OUT_DIR: ${{ secrets.HMD_MD_OUT_DIR }}
+  BUILD_PATH: "."
+
 on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
@@ -14,23 +20,65 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
+    name: Build and upload artifact
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    strategy:
+      matrix:
+        node-version: ['20.x']
+    
     steps:
-      - name: '🩻 Checkout your repository using git'
+      - name: '☁️ Checkout repository'
         uses: actions/checkout@v4
+
+      - name: '🔧 Setup Node.js ${{ matrix.node-version }}'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+
+      - name: '🎚️ Setup Pages'
+        id: pages
+        uses: actions/configure-pages@v5
+      
+      - name: '🖨️ Export environment variables'
+        run: |
+          touch .env
+          echo "HMD_SLUG_SOURCE_FILE=${{ env.HMD_SLUG_SOURCE_FILE }}" >> .env
+          echo "HMD_SLUG_OUTPUT_FILE=${{ env.HMD_SLUG_OUTPUT_FILE }}" >> .env
+          echo "HMD_MD_OUT_DIR=${{ env.HMD_MD_OUT_DIR }}" >> .env
+
+      - name: '📦 Install dependencies'
+        run: npm ci
+
       - name: '🔁 Generate Guide slug map'
         run: npm run guide:generate
+
       - name: '📥 Fetch HackMD articles'
         run: npm run guide:fetch
-      - name: '🚧 Install, build, and upload your site'
-        uses: withastro/action@v3
-        # with:
-        # path: . # The root location of your Astro project inside the repository. (optional)
-        # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
-        # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
+      - name: '🚧 Build with Astro'
+        run: |
+            npm run astro build \
+              --site "${{ steps.pages.outputs.origin }}" \
+              --base "${{ steps.pages.outputs.base_path }}"
+        working-directory: ${{ env.BUILD_PATH }}
+
+      - name: '🛄 Upload artifact'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.BUILD_PATH }}/dist  
+      
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -38,6 +86,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: '🚀 Deploy to GitHub Pages'
         id: deployment
         uses: actions/deploy-pages@v4
