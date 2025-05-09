@@ -117,7 +117,7 @@ const joinCommunity = {
     href: '#mesh-channel',
     description: [
       `打開 Meshtastic 行動應用程式。`,
-      `<p><span class='flex gap-1'>Android：在主介面找到&nbsp;<span class='flex size-8 text-gray-800 dark:text-gray-200' aria-label=' contactless'  aria-hidden='true' class='inline-block text-gray-800 dark:text-gray-200 mr-2 size-6'>${contactlessIcon}</span>&nbsp;圖示並點擊。</span></p><p>iOS：在設定頁面選擇「QR Code」。</p>`,
+      `<p><span class='flex flex-col md:flex-row gap-1'>Android：在主介面找到&nbsp;<span class='size-8 text-gray-800 dark:text-gray-200' aria-label=' contactless' aria-hidden='true' class='inline-block text-gray-800 dark:text-gray-200 mr-2 size-6'>${contactlessIcon}</span>&nbsp;圖示並點擊。</span></p><p>iOS：在設定頁面選擇「QR Code」。`,
       `點擊「掃描」(Scan) 按鈕並掃描上方 QR Code 加入我們的頻道。`,
     ],
   },
@@ -260,11 +260,10 @@ const joinCommunity = {
               <span class='sr-only' set:text='Close 關閉' />
             </button>
             <div class='flex flex-col items-center'>
-              <div
-                style='background-image: url(/assets/channel-qr-code.png);'
-                class='my-2 w-full max-w-lg bg-cover bg-center object-contain dark:invert-[0.9]'
-              >
-              </div>
+              <img
+                src='/assets/channel-qr-code.png'
+                class='my-2 size-full max-w-lg bg-cover bg-center object-contain dark:invert-[0.9]'
+              />
               <div
                 class='my-2 text-lg text-gray-700 md:my-8 md:text-xl dark:text-gray-300'
               >
