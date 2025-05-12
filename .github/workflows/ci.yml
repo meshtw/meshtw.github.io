@@ -1,6 +1,6 @@
 name: CI
 
-env: 
+env:
   HMD_SLUG_SOURCE_FILE: ${{ vars.HMD_SLUG_SOURCE_FILE }}
   HMD_SLUG_OUTPUT_FILE: ${{ vars.HMD_SLUG_OUTPUT_FILE }}
   HMD_MD_OUT_DIR: ${{ vars.HMD_MD_OUT_DIR }}
