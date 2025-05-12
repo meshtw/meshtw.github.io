@@ -109,13 +109,11 @@ export const findLinkByPath = (pathname: string) => {
     joinUs,
     article,
   ];
-  // find the only one
   const matchedLink = allEntries.find((link) => {
     const { href } = link;
     return (
-      href === pathname ||
-      pathname[href.length] === '/' ||
-      pathname.length === href.length ||
+      pathname === href ||
+      pathname.startsWith(href) ||
       pathname.replace('/guide', '') === href
     );
   });
