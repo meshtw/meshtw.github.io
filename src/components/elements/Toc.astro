@@ -1,0 +1,69 @@
+---
+import { menuIcon } from '@assets/iconSet';
+
+interface Props {
+  chapters: {
+    depth: number;
+    title: string;
+    href: string;
+  }[];
+}
+
+const { chapters } = Astro.props;
+---
+
+<aside
+  class='fixed bottom-6 float-left m-4 space-y-4 xl:sticky xl:top-6'
+  x-data='{ isTocOpen : false, isSubheadOpen : false }'
+  x-init='isTocOpen = window.innerWidth >= 1280 ? true : false'
+  @resize.window='isTocOpen = window.innerWidth >= 1280 ? true : isTocOpen'
+>
+  <div
+    class='w-50 rounded border border-gray-400 bg-gray-100 px-3 py-2 dark:bg-gray-800 text-gray-800 dark:text-gray-400 xl:border-0 xl:bg-transparent xl:text-gray-800 dark:xl:bg-gray-700 dark:xl:text-gray-200'
+    x-show='isTocOpen'
+  >
+    <div class='text-sm'>
+      <p class='text-xs py-1'>目録 TOC</p>
+      <ul class='mt-2'>
+        {
+          chapters.map((chapter) => (
+            <li
+              class:list={[
+                `ml-${chapter.depth > 1 ? chapter.depth * 2 : 0}`,
+                'py-0.5',
+              ]}
+              x-show={chapter.depth > 1 ? 'isSubheadOpen' : true}
+              x-transition:enter='transition ease-out duration-100'
+              class='hover:text-gray-600 dark:hover:text-gray-300'
+            >
+              <a href={chapter.href}>{chapter.title}</a>
+            </li>
+          ))
+        }
+        <li class:list={[`ml-${chapters.length * 2}`, 'mt-3 py-0.5']}>
+          <a
+            class='hover:text-gray-600 dark:hover:text-gray-300'
+            href='#main-content'>Back to Top 回到頂部</a
+          >
+        </li>
+        <li class:list={[`ml-${chapters.length * 2}`, 'py-0.5']}>
+          <button type='button' @click='isSubheadOpen = !isSubheadOpen'>
+            <div class='hover:text-gray-600 dark:hover:text-gray-300'>
+              Show All 顯示全部
+            </div>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class='block xl:hidden'>
+    <button
+      type='button'
+      @click='isTocOpen = !isTocOpen'
+      class='rounded border border-gray-400 bg-gray-100 p-2 text-sm text-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 dark:bg-gray-800 dark:text-gray-400'
+    >
+      <svg class='size-6' set:html={menuIcon} />
+      <span class='sr-only'>Toggle ToC 目録開關</span>
+    </button>
+  </div>
+</aside>

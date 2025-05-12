@@ -11,6 +11,7 @@ import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 
 import remarkHmdMarkdocs from './src/lib/remarkHmdMarkdocs.js';
 import remarkHmdSlugConversion from './src/lib/remarkHmdSlugConversion.js';
+import remarkTableOfContents from './src/lib/remarkHmdToc.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,6 +37,7 @@ export default defineConfig({
       ],
       remarkHmdMarkdocs,
       remarkHmdSlugConversion,
+      remarkTableOfContents,
     ],
     rehypePlugins: [rehypeHeadingIds],
   },

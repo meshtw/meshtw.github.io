@@ -1,15 +1,17 @@
 ---
+import Toc from '@components/elements/Toc.astro';
 import Layout from '@layouts/General.astro';
 
 import '@styles/hackmd-alert-alt.css';
 
-const { frontmatter } = Astro.props;
+const { frontmatter, toc } = Astro.props;
 ---
 
 <Layout frontmatter={frontmatter}>
-  <div class='w-full bg-gray-400/80 dark:bg-gray-800'>
+  <div class='relative mx-auto w-full bg-gray-400/55 dark:bg-gray-800'>
+    <Toc chapters={toc} />
     <article
-      class='mx-auto max-w-5xl space-y-12 bg-gray-200 px-6 py-24 text-gray-900 lg:px-12 dark:bg-gray-700/90 dark:text-gray-200'
+      class='mx-auto xl:mr-10 max-w-5xl space-y-12 bg-gray-200/80 px-6 py-24 text-gray-900 lg:px-12 dark:bg-gray-700/90 dark:text-gray-200'
     >
       <div class='mx-auto w-full max-w-5xl space-y-4'>
         <div class='mx-auto text-gray-800 dark:text-gray-300'>

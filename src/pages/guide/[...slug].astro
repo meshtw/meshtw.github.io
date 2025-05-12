@@ -20,7 +20,7 @@ export const getStaticPaths = (async () => {
 
 const { article } = Astro.props as Props;
 const { slug } = Astro.params as Params;
-const { Content } = await render(article);
+const { Content, remarkPluginFrontmatter } = await render(article);
 const { data, body } = article;
 
 if (!data.title && body) {
@@ -31,9 +31,11 @@ if (!data.title && body) {
 
   article.data.title = match ? match[1].trim() : '';
 }
+
+const toc = remarkPluginFrontmatter.tableOfContents;
 ---
 
-<MarkdownLayout frontmatter={article.data}>
+<MarkdownLayout frontmatter={article.data} toc={toc}>
   <Prose>
     <Content slug={slug} />
   </Prose>
