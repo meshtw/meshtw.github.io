@@ -1,9 +1,10 @@
 # 臺灣鏈網 Meshtastic Taiwan Community
 
 [![License](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
-![Latest commit](https://img.shields.io/github/last-commit/meshtw/meshtw.github.io/latest?style=for-the-badge)
+![Last commit](https://img.shields.io/github/last-commit/meshtw/meshtw.github.io?style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/meshtw/meshtw.github.io/deploy.yml?style=for-the-badge)
 ![Site Up/down](https://img.shields.io/website-up-down-green-red/http/meshtw.github.io.svg?style=for-the-badge)
-![<3](https://img.shields.io/badge/Built%20with-❤️-E0C0D0?style=for-the-badge&logo=Jupyter.svg)
+![<3](https://img.shields.io/badge/Built%20with-❤️-E0C0D0?style=for-the-badge)
 
 ![M-PWRD](https://img.shields.io/badge/powered-67EA94?style=for-the-badge&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDUwIDI4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPHN0eWxlPgogICAgICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgICAgICAgcGF0aCB7CiAgICAgICAgICAgICAgICBmaWxsOiB3aGl0ZTsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjEwMTE2LDAsMCwwLjYzMTMyMSwtMjA3LjIyOCwtMjAyLjgzMykiPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMjAxODA0LDAsMCwwLjM1MTk4OSwxNjcuMjg5LDIxNi4wNjEpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTI1MC45MTIsMzM0LjY2NEwxOTUuMTc1LDQxNi40MDNMMTc4Ljg4OSw0MDUuMjk3TDI0Mi43NTMsMzExLjY0QzI0NC41ODcsMzA4Ljk1IDI0Ny42MzEsMzA3LjMzOSAyNTAuODg3LDMwNy4zMzZDMjU0LjE0MywzMDcuMzMzIDI1Ny4xOSwzMDguOTM4IDI1OS4wMjksMzExLjYyNUwzMjMuMDQsNDA1LjEzNUwzMDYuNzc0LDQxNi4yN0wyNTAuOTEyLDMzNC42NjRaIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMjA1MDA5LDAsMCwwLjM1NzU3OCwxNzQuMjI0LDE1NC4yMjcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTg5Ljg3OCw1ODIuOTIzTDE1Ni45OTMsNDg0LjUwMkwxNDAuNDAyLDQ3My4xODhMNzMuMjg3LDU3MS42MDlMODkuODc4LDU4Mi45MjNaIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?style=for-the-badge&logo=github&logoColor=white)
@@ -17,17 +18,17 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/meshtw">
     <img src="public/assets/meshtw.png" alt="Logo" width="160" height="160">
   </a>
 
 <h3 align="center">臺灣鏈網 MeshTW</h3>
 
   <p align="center">
-    <a href="https://github.com/meshtw/meshtw.github.io/blob/docs/overview.md"><strong>Repo docs 專案説明文件 »</strong></a>
+    <a href="https://github.com/meshtw/meshtw.github.io/blob/mani/docs/overview.md"><strong>Repo docs 專案説明文件 »</strong></a>
     <br />
     <br />
-    <a href="https://meshtw.github.io/">View the Site</a>
+    <a href="https://meshtw.github.io/" tagret="_blank" rel="nofollow noopener">View the Site</a>
     &middot;
     <a href="https://github.com/meshtw/meshtw.github.io/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
