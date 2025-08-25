@@ -23,7 +23,7 @@
     "@tailwindcss/vite": "^4.1.4",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
-    "astro": "^5.7.5",
+    "astro": "^5.13.3",
     "dotenv": "^16.5.0",
     "tailwindcss": "^4.1.4"
   },
