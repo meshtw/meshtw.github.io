@@ -33,9 +33,10 @@ if (!data.title && body) {
 }
 
 const toc = remarkPluginFrontmatter.tableOfContents;
+const tags = article.data.tags;
 ---
 
-<MarkdownLayout frontmatter={article.data} toc={toc}>
+<MarkdownLayout frontmatter={article.data} toc={toc} tags={tags}>
   <Prose>
     <Content slug={slug} />
   </Prose>

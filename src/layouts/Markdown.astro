@@ -1,10 +1,11 @@
 ---
 import Toc from '@components/elements/Toc.astro';
+import TagPills from '@components/elements/TagPills.astro';
 import Layout from '@layouts/General.astro';
 
 import '@styles/hackmd-alert-alt.css';
 
-const { frontmatter, toc } = Astro.props;
+const { frontmatter, toc, tags } = Astro.props;
 ---
 
 <Layout frontmatter={frontmatter}>
@@ -14,6 +15,7 @@ const { frontmatter, toc } = Astro.props;
       class='mx-auto space-y-12 bg-gray-200/80 px-6 py-24 text-gray-900 lg:px-12 xl:mr-10 xl:w-4/5 2xl:mr-24 dark:bg-gray-700/90 dark:text-gray-200'
     >
       <slot />
+      <TagPills tags={tags} />
     </article>
   </div>
 </Layout>
