@@ -1,0 +1,45 @@
+name: 'CI - Submodule sync listener'
+
+# sauce: https://stackoverflow.com/questions/64407333/
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  update:
+    name: 'Trigger Submodules Sync'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      matrix:
+        node-version: ['20.x']
+
+    steps:
+      - name: '☁️ Checkout repository'
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive  # Fetches all submodules
+
+      - name: "🤖 I'm bot"
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      # Update references
+      - name: '🔄 Update submodule references recursively'
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote --recursive
+
+      - name: '📝 Commit & push updates'
+        run: |
+          git add --all
+          git commit -am "feat(bot, guide): Auto-update submodule references" && git push || echo "No changes to commit"
