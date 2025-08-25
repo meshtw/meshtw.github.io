@@ -20,6 +20,7 @@
 /KtImBLBJSK2hFSJv8k6-eA >> /what-is-gps                 # GPS是什麼
 
 /byqNh-dXTtactp28_DtOTQ >> /quick-start                 # >>快速使用<<
+/5Vy7EE6dQL2v_XHPkbSKtw >> /mqtt-setup                  # 設置MQTT
 
 /FmAJYG7vQ6-Jivck-rt4bg >> /app-basics                  # APP使用教學
 /h00yTFxUR1a0nCa5vhhqYg >> /android-basics              # Android畫面說明
@@ -30,6 +31,7 @@
 
 /TK1WlNQeQ3uCb29sHHoaTA >> /what-is-hardware            # 什麼是硬體
 /epmnQ5wqSsWzof9KkxvA4Q >> /hardware-picks              # 硬體的選擇
+/MDXyte1RT7-L0xICE4SUGw >> /antenna-101                 # 天線是幹嘛的？
 /S5-ZrcA7SZCJ9V2BnvZCbg >> /sensor-setup                # 如何添加Sensor
 /NKtqScoZRg6ChTcPA-FazQ >> /antenna-mod                 # 天線的改裝
 
