@@ -10,7 +10,16 @@ const guideSchema = z.object({
   title: z.string().optional(),
   description: z.string().optional(),
   featured: z.boolean().optional(),
-  tags: z.array(z.string()).default(['Meshtastic']),
+  tags: z
+    .array(z.string())
+    .or(
+      // HackMD inline tags
+      z
+        .string()
+        .transform((value) => value.split(',').map(String))
+        .pipe(z.string().array()),
+    )
+    .default(['Meshtastic']),
   hackmd: z.string().optional(),
 });
 
