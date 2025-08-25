@@ -35,10 +35,12 @@ export const slugMap = {
   '/KtImBLBJSK2hFSJv8k6-eA': '/what-is-gps',
   // >>快速使用<<
   '/byqNh-dXTtactp28_DtOTQ': '/quick-start',
+  // 設置MQTT
+  '/5Vy7EE6dQL2v_XHPkbSKtw': '/mqtt-setup',
   // APP使用教學
-  '/FmAJYG7vQ6-Jivck-rt4bg': '/app-basics',
+  '/FmAJYG7vQ6-Jivck-rt4bg': '/app-101',
   // Android畫面說明
-  '/h00yTFxUR1a0nCa5vhhqYg': '/android-basics',
+  '/h00yTFxUR1a0nCa5vhhqYg': '/android-101',
   // Meshtastic有哪些軟體
   '/0k89lCb1Qw-jZfeq-Imx4w': '/software-list',
   // Meshtastic角色介紹
@@ -51,6 +53,8 @@ export const slugMap = {
   '/TK1WlNQeQ3uCb29sHHoaTA': '/what-is-hardware',
   // 硬體的選擇
   '/epmnQ5wqSsWzof9KkxvA4Q': '/hardware-picks',
+  // 天線是幹嘛的？
+  '/MDXyte1RT7-L0xICE4SUGw': '/antenna-101',
   // 如何添加Sensor
   '/S5-ZrcA7SZCJ9V2BnvZCbg': '/sensor-setup',
   // 天線的改裝

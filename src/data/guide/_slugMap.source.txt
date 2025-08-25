@@ -22,8 +22,8 @@
 /byqNh-dXTtactp28_DtOTQ >> /quick-start                 # >>快速使用<<
 /5Vy7EE6dQL2v_XHPkbSKtw >> /mqtt-setup                  # 設置MQTT
 
-/FmAJYG7vQ6-Jivck-rt4bg >> /app-basics                  # APP使用教學
-/h00yTFxUR1a0nCa5vhhqYg >> /android-basics              # Android畫面說明
+/FmAJYG7vQ6-Jivck-rt4bg >> /app-101                     # APP使用教學
+/h00yTFxUR1a0nCa5vhhqYg >> /android-101                 # Android畫面說明
 /0k89lCb1Qw-jZfeq-Imx4w >> /software-list               # Meshtastic有哪些軟體
 /rnEpa5b_SDCIPOoQ9I5m2A >> /device-roles                # Meshtastic角色介紹
 /jhLi2YVES7-JMlDu4X511g >> /mqtt-setup                  # MQTT設置
