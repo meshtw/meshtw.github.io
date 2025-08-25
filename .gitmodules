@@ -1,0 +1,3 @@
+[submodule "src/contents/guide"]
+	path = src/contents/guide
+	url = https://github.com/meshtw/user-guide.git
