@@ -25,7 +25,7 @@
 <h3 align="center">臺灣鏈網 MeshTW</h3>
 
   <p align="center">
-    <a href="https://github.com/meshtw/meshtw.github.io/blob/mani/docs/overview.md"><strong>Repo docs 專案説明文件 »</strong></a>
+    <a href="https://github.com/meshtw/meshtw.github.io/blob/main/docs/overview.md"><strong>Repo docs 專案説明文件 »</strong></a>
     <br />
     <br />
     <a href="https://meshtw.github.io/" tagret="_blank" rel="nofollow noopener">View the Site</a>
