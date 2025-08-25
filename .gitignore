@@ -23,5 +23,3 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# HackMD articles: fetch during development when needed
-/src/contents/guide/*.md*

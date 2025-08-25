@@ -47,9 +47,6 @@ jobs:
       - name: '🔁 Generate Guide slug map'
         run: npm run guide:generate
 
-      - name: '📥 Fetch HackMD articles'
-        run: npm run guide:fetch
-
       - name: '🔎 Lint code'
         run: npm run lint
 

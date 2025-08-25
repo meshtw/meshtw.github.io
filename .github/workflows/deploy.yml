@@ -64,9 +64,6 @@ jobs:
       - name: '🔁 Generate Guide slug map'
         run: npm run guide:generate
 
-      - name: '📥 Fetch HackMD articles'
-        run: npm run guide:fetch
-
       - name: '🚧 Build with Astro'
         run: |
           npm run astro build \
