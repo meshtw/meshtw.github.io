@@ -12,6 +12,10 @@ jobs:
     name: 'Trigger Submodules Sync'
     runs-on: ubuntu-latest
     timeout-minutes: 2
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -26,7 +30,7 @@ jobs:
       - name: '☁️ Checkout repository'
         uses: actions/checkout@v5
         with:
-          submodules: recursive  # Fetches all submodules
+          submodules: true  # Fetches all submodules
           repository: meshtw/meshtw.github.io
 
       - name: "🤖 I'm bot"
@@ -42,5 +46,4 @@ jobs:
 
       - name: '📝 Commit & push updates'
         run: |
-          git add --all
           git commit -am "feat(bot, guide): Auto-update submodule references" && git push || echo "No changes to commit"
