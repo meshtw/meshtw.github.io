@@ -12,7 +12,7 @@ export const SITE = {
 };
 
 export const SNS_URLS = {
-  facebook: 'https://fb.com/groups/meshtasictw',
+  facebook: 'https://fb.com/groups/meshtastictw',
   discord: 'https://discord.gg/2vZkuckp8E',
   telegram: 'https://t.me/MeshTW_MQTT',
   github: 'https://github.com/meshtw',
